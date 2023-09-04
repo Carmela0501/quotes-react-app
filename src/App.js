@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect} from 'react';
+import Quote from './Quote';
+import Button from './Button';
 
 function App() {
+  const [quotesData, setQuotesData] = useState({quote: ""});
+  useEffect(() => {
+fetch (`https://breezy-fluorescent-vacation.glitch.me`)
+.then(res => res.json())
+.then((data) => {
+  setQuotesData(data);
+});
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <Quote quotesData = {quotesData} setQuotesData = {setQuotesData}/>
+      <Button quotesData = {quotesData} setQuotesData = {setQuotesData}/>
     </div>
   );
 }
