@@ -6,7 +6,7 @@ import Button from './Button';
 function App() {
   const [quotesData, setQuotesData] = useState({quote: ""});
   useEffect(() => {
-fetch (`https://breezy-fluorescent-vacation.glitch.me`)
+fetch (`https://breezy-fluorescent-vacation.glitch.me/quotes/random`)
 .then(res => res.json())
 .then((data) => {
   setQuotesData(data);
