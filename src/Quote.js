@@ -6,7 +6,7 @@ const Quote = ({quotesData, setQuotesData}) => {
   return (
     <div>
       <div className="quote">
-        <p className='coloms'>❝</p>
+        <p className='columns'>❝</p>
           <p onClick={() => generateNewQuote(setQuotesData)}>{quotesData.quote}</p>
           </div>
         <p className='author'>{quotesData.author}</p>
